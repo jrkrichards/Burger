@@ -2,13 +2,39 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger_App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burger_Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../public/assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
 </head>
 
-<body>
-    {{{ body }}}
+<body style="background-color: white" class="d-flex flex-column">
+    <!-- Start of the Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+        <span class="navbar-brand mb-1 h1">Eat-Da-Burger</span>
+    </nav>
+    <!-- End Nav -->
+    <!-- Start of Content Container -->
+    <div id="page-content">
+        <div class="p-5 container text-center" class="top-buffer mh-100">
+            {{{body}}}
+        </div>
+    </div>
+    <!-- Start of Footer -->
+    <footer id="sticky-footer" class="py-4 bg-dark text-white">
+        <div class="container text-center">
+            <small>Copyright &copy; 2020</small>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="../../public/assets/js/burger.js"></script>
 </body>
 
 </html>

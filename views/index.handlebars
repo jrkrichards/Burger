@@ -1,12 +1,85 @@
-<h1>Eat-Da-Burger!</h1>
-
-<h2>All Burgers</h2>
+<main class="row">
+    <div class="col-md-12">
+        <div class="card mt-2">
+            <div class="card-body">
+                <aside class="row">
+                    <div class="col-md-6">
+                        <h3 class="border-bottom border-dark">Un-Devoured Burgers</h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Devour</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each burger}}
+                                    {{#unless devoured}}
+                                    <tr>
+                                        <th id="burger_id" scope="row">{{this.id}}</th>
+                                        <td>{{this.burger_name}}</td>
+                                        <td>
+                                            <button class="btn btn btn-outline-info" type="button" id="devour_button">
+                                                <i class="fas fa-utensils"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{/unless}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="border-bottom border-dark">Devoured Burgers</h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Add</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each burger}}
+                                    {{#if devoured}}
+                                    <tr>
+                                        <th id="burger_id" scope="row">{{this.id}}</th>
+                                        <td>{{this.burger_name}}</td>
+                                        <td>
+                                            <button class="btn btn btn-outline-info" type="button" id="add_button">
+                                                <i class="fas fa-hamburger"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{/if}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </aside>
+                <h3 class="border-bottom border-dark">Add a Burger</h3>
+                <div class="row">
+                    <summary class="col-md-12 text-left">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="e.g., Cheese Burger" id="burger_input">
+                            <div class="input-group-append">
+                                <button class="btn btn btn-outline-info" type="button" id="search_button">
+                                    <i class="fas fa-hamburger"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </summary>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
 <ul>
-    {{#each burger}}
-    <li>
-        <p>ID: {{this.id}}</p>
-        <p>Name: {{this.burger_name}}</p>
-    </li>
-    {{/each}}
+
 </ul>
