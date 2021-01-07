@@ -8,8 +8,8 @@ const burger = {
   insertOne(cols, vals, cb) {
     orm.insertOne('burger', cols, vals, (res) => cb(res));
   },
-  updateOne(objColVals, condition, cb) {
-    orm.updateOne('burger', objColVals, condition, (res) => cb(res));
+  updateOne(condition, cb) {
+    orm.updateOne('burger', condition, (res) => cb(res));
   },
 };
 
