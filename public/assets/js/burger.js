@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   // UPDATE
   const devourBtn = document.querySelectorAll('#devour_btn');
-
+  
   // Set up the event listener for the create button
   if (devourBtn) {
     devourBtn.forEach((button) => {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const newDevoured = {
           devoured: devoured,
         };
-
+      
         fetch(`/api/burger/${id}`, {
           method: 'PUT',
           headers: {
@@ -46,20 +46,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
   // CREATE
-  const createCatBtn = document.getElementById('create-form');
+  const addBurgerBtn = document.getElementById('add_button');
 
-  if (createCatBtn) {
-    createCatBtn.addEventListener('submit', (e) => {
+  if (addBurgerBtn) {
+    addBurgerBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      const name = document.querySelectorAll('#burger_input')[0].value;
 
-      // Grabs the value of the textarea that goes by the name, "quote"
-      const newCat = {
-        name: document.getElementById('ca').value.trim(),
-        sleepy: document.getElementById('sleepy').checked,
+      const newBurger = {
+        burger_name: name,
       };
 
       // Send POST request to create a new quote
-      fetch('/api/cats', {
+      fetch('/api/burger', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
