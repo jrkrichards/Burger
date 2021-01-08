@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             console.log(`changed devoured to: ${newDevoured}`);
             location.reload('/');
           } else {
-            alert('something went wrong!');
+            alert('You have to eat the whole burger! Click to devour again!');
           }
         });
       });
@@ -54,9 +54,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
       const name = document.querySelectorAll('#burger_input')[0].value;
 
       const newBurger = {
-        burger_name: name,
+        name: name,
       };
-
+      console.log("add clicked")
       // Send POST request to create a new quote
       fetch('/api/burger', {
         method: 'POST',
@@ -65,14 +65,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
           'Content-Type': 'application/json',
         },
 
-        // make sure to serialize the JSON body
-        body: JSON.stringify(newCat),
+        body: JSON.stringify(newBurger),
       }).then(() => {
-        // Empty the form
-        document.getElementById('ca').value = '';
-
         // Reload the page so the user can see the new quote
-        console.log('Created a new cat!');
+        console.log('Created a burger!');
         location.reload();
       });
     });

@@ -3,7 +3,7 @@ const connection = require('./connection.js');
 
 // Object for all our SQL statement functions.
 const orm = {
-  // Need to update actual code
+  // To return all data
   selectAll(tableInput, cb) {
     const queryString = `SELECT * FROM ${tableInput};`;
     connection.query(queryString, (err, result) => {
@@ -13,16 +13,19 @@ const orm = {
       cb(result);
     });
   },
-  // Need to update actual code
-  insertOne(table, cols, vals, cb) {
+  // To add a new burger to be devoured
+  insertOne(table, vals, cb) {
+    
     let queryString = `INSERT INTO ${table}`;
 
     queryString += ' (';
-    queryString += cols.toString();
+    queryString += 'burger_name';
     queryString += ') ';
     queryString += 'VALUES (';
-    queryString += printQuestionMarks(vals.length);
-    queryString += ') ';
+    queryString += "'";
+    queryString += vals;
+    queryString += "'";
+    queryString += '); ';
 
     console.log(queryString);
 
@@ -34,7 +37,7 @@ const orm = {
       cb(result);
     });
   },
-    // Need to update actual code
+    // To update the devoured
   updateOne(table, condition, cb) {
     let queryString = `UPDATE ${table}`;
 
@@ -43,6 +46,7 @@ const orm = {
     queryString += ' WHERE ';
     queryString += condition;
     queryString += ';';
+    
     console.log(queryString);
     connection.query(queryString, (err, result) => {
       if (err) {
