@@ -7,17 +7,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // UPDATE
   const devourBtn = document.querySelectorAll('#devour_btn');
   
-  // Set up the event listener for the create button
+  // Set up the event listener for the devour button
   if (devourBtn) {
     devourBtn.forEach((button) => {
       button.addEventListener('click', (e) => {
         e.preventDefault
-        console.log('test');
+
         // Grabs the id of the element that goes by the name, "id"
         const id = e.target.getAttribute('data-id');
         const devoured = e.target.getAttribute('data-devoured');
-
-        console.log(id)
         const newDevoured = {
           devoured: devoured,
         };
@@ -29,13 +27,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             'Content-Type': 'application/json',
           },
 
-          // make sure to serialize the JSON body
+          // Serialize the JSON body
           body: JSON.stringify(newDevoured),
         }).then((response) => {
           // Check that the response is all good
-          // Reload the page so the user can see the new quote
+          // Reload the page
           if (response.ok) {
-            console.log(`changed devoured to: ${newDevoured}`);
             location.reload('/');
           } else {
             alert('You have to eat the whole burger! Click to devour again!');
@@ -56,7 +53,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       const newBurger = {
         name: name,
       };
-      console.log("add clicked")
       // Send POST request to create a new quote
       fetch('/api/burger', {
         method: 'POST',
@@ -65,9 +61,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
           'Content-Type': 'application/json',
         },
 
+        // Serialize the JSON body
         body: JSON.stringify(newBurger),
       }).then(() => {
-        // Reload the page so the user can see the new quote
+        // Reload the page
         console.log('Created a burger!');
         location.reload();
       });

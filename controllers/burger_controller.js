@@ -11,28 +11,19 @@ router.get('/', (req, res) => {
     const burgerObject = {
       burger: data,
     };
-    console.log(burgerObject);
     res.render('index', burgerObject);
   });
 });
 
-router.post('/api/burger', (req, res) => {
-  console.log(req.body)
-  
+router.post('/api/burger', (req, res) => {  
   
   burger.insertOne([req.body.name], (result) => {
-    console.log(result)
     res.json({ id: result.insertId });
   });
 });
 
 router.put('/api/burger/:id', (req, res) => {
   const condition = `id = ${req.params.id}`;
-
-  console.log('condition', condition);
-  console.log({
-    devoured: req.body.devoured,
-  })
 
   burger.updateOne(
     condition,
