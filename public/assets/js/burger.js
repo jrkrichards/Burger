@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const newDevoured = {
           devoured: devoured,
         };
-      
+        
         fetch(`/api/burger/${id}`, {
           method: 'PUT',
           headers: {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
       });
     });
-  }
+  };
 
   // CREATE
   const addBurgerBtn = document.getElementById('add_button');
