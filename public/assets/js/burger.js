@@ -5,20 +5,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
   // UPDATE
-  const devourBtn = document.querySelectorAll('#devour_btn');
+  const devourBtn = document.querySelectorAll('.devour_btn');
   
   // Set up the event listener for the devour button
   if (devourBtn) {
     devourBtn.forEach((button) => {
       button.addEventListener('click', (e) => {
-        e.preventDefault
-
+        e.preventDefault();
+        console.log(e.target)
         // Grabs the id of the element that goes by the name, "id"
-        const id = e.target.getAttribute('data-id');
-        const devoured = e.target.getAttribute('data-devoured');
+        const id = e.currentTarget.getAttribute('data-id');
+        const devoured = e.currentTarget.getAttribute('data-devoured');
         const newDevoured = {
           devoured: devoured,
         };
+        console.log(id)
         
         fetch(`/api/burger/${id}`, {
           method: 'PUT',
